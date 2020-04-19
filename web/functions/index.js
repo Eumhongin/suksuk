@@ -17,7 +17,7 @@ admin.initializeApp({
 
 app.get('/', (req, res, next) => {
   res.json({
-    msg: 'complte'
+    msg: 'complete'
   })
 })
 
