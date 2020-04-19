@@ -114,7 +114,86 @@ const SwitchNavigation = props => {
         />
         <Stack.Screen
           name="Join"
-          options={{headerShown: false}}
+          options={
+            Platform.OS === 'android'
+              ? {
+                  title: '회원가입',
+                  headerTitleContainerStyle: {
+                    // backgroundColor: 'yellow',
+                    position: 'absolute',
+                    left: 0,
+                    width: '100%',
+                    zIndex: 0,
+                  },
+                  // headerStyle: {
+                  //   paddingHorizontal: 8,
+                  // },
+                  headerTitle: () => (
+                    <View
+                      style={{
+                        // backgroundColor: 'red',
+                        justifyContent: 'center',
+
+                        alignItems: 'center',
+                        // backgroundColor: 'yellow',
+                      }}>
+                      <Text
+                        style={{
+                          fontSize: 14,
+                          fontFamily: 'GmarketSansMedium',
+                        }}>
+                        회원가입
+                      </Text>
+                    </View>
+                  ),
+                  // headerBackTitleVisible: false,
+                  headerBackImage: () => (
+                    <Image
+                      style={
+                        Platform.OS === 'android'
+                          ? {marginLeft: 5}
+                          : {marginLeft: 10}
+                      }
+                      source={backbtn}
+                    />
+                  ),
+
+                  headerStyle: {
+                    shadowColor: '#fff',
+                    shadowOffset: {
+                      height: 0,
+                    },
+                    shadowRadius: 0,
+                    shadowOpacity: 0,
+                    elevation: 0,
+                  },
+                }
+              : {
+                  headerTitle: () => (
+                    <View
+                      style={{
+                        justifyContent: 'center',
+                        alignItems: 'center',
+                      }}>
+                      <Text
+                        style={{
+                          fontSize: 14,
+                          fontFamily: 'GmarketSansMedium',
+                        }}>
+                        회원가입
+                      </Text>
+                    </View>
+                  ),
+                  headerBackTitleVisible: false,
+                  headerBackImage: () => (
+                    <Image style={{marginLeft: 10}} source={backbtn} />
+                  ),
+
+                  headerStyle: {
+                    shadowColor: '#fff',
+                  },
+                }
+          }
           component={Join}
         />
         <Stack.Screen
