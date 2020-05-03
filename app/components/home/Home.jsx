@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import {useSelector, useDispatch} from 'react-redux';
 import {
   StyleSheet,
@@ -7,38 +7,51 @@ import {
   SafeAreaView,
   Image,
   TouchableOpacity,
+  Platform,
 } from 'react-native';
 import {home_deco} from '../../assets/img';
 import colors from '../../assets/color';
 import {changeNavigationState} from './action';
+
 const Home = ({navigation}) => {
   const dispatch = useDispatch();
+
   return (
-    <SafeAreaView style={css.container}>
-      <View style={css.deco}>
-        <Image source={home_deco} />
-      </View>
-      <View style={css.sloganView}>
-        <Text style={css.slogan}>안녕하세요{'\n'}쑥쑥아이입니다</Text>
-      </View>
-      <View style={css.interactionView}>
-        <TouchableOpacity
-          style={[css.btnBG, {backgroundColor: colors.mainColor}]}
-          onPress={() => {
-            navigation.navigate('Login');
-          }}>
-          <Text style={css.btnText}>로그인하기</Text>
-        </TouchableOpacity>
-        <TouchableOpacity
-          style={[css.btnBG, {backgroundColor: colors.sukGray}]}
-          onPress={() => {
-            navigation.navigate('Join');
-            // dispatch(changeNavigationState('Join'));
-          }}>
-          <Text style={css.btnText}>회원가입하기</Text>
-        </TouchableOpacity>
-      </View>
-    </SafeAreaView>
+    <View style={{backgroundColor: 'white'}}>
+      <SafeAreaView style={css.container}>
+        <View style={css.deco}>
+          <Image source={home_deco} />
+        </View>
+        <View style={css.sloganView}>
+          <Text style={css.slogan}>안녕하세요{'\n'}쑥쑥아이입니다</Text>
+        </View>
+        <View style={css.interactionView}>
+          <TouchableOpacity
+            style={[css.btnBG, {backgroundColor: colors.mainColor}]}
+            onPress={() => {
+              navigation.navigate('Login');
+            }}>
+            <Text style={css.btnText}>로그인하기</Text>
+          </TouchableOpacity>
+          <TouchableOpacity
+            style={[css.btnBG, {backgroundColor: colors.sukGray}]}
+            onPress={() => {
+              navigation.navigate('Join');
+              // dispatch(changeNavigationState('Join'));
+            }}>
+            <Text style={css.btnText}>회원가입하기</Text>
+          </TouchableOpacity>
+          <TouchableOpacity
+            style={[css.btnBG, {backgroundColor: colors.mainColor}]}
+            onPress={() => {
+              navigation.navigate('Test');
+              // dispatch(changeNavigationState('Join'));
+            }}>
+            <Text style={css.btnText}>테스트모드</Text>
+          </TouchableOpacity>
+        </View>
+      </SafeAreaView>
+    </View>
   );
 };
 

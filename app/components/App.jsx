@@ -2,7 +2,8 @@
 
 import React, {useState, useEffect, useRef} from 'react';
 import {useSelector, useDispatch} from 'react-redux';
-import {backbtn} from '../assets/img';
+import {composeWithDevTools} from 'redux-devtools-extension';
+import {backbtn, backwhite} from '../assets/img';
 import {
   Button,
   View,
@@ -17,27 +18,20 @@ import {
   TouchableHighlight,
 } from 'react-native';
 import {NavigationContainer} from '@react-navigation/native';
-
 import {createStackNavigator} from '@react-navigation/stack';
 import SplashScreen from 'react-native-splash-screen';
-// import auth from '@react-native-firebase/auth';
-// import database from '@react-native-firebase/database';
-// import firestore from '@react-native-firebase/firestore';
-// import Join from './Join/Join';
 import {createStore} from 'redux';
 import {Provider} from 'react-redux';
 import rootReducer from '../reducers';
-// import {changeNavigationState} from './action';
-// import Login from './Login/Login';
 import Home from './home/Home';
 import Join from './join/Join';
 import Login from './login/Login';
 import CheckEmail from './find_password/CheckEmail';
-
-const myStore = createStore(
-  rootReducer,
-  window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__(),
-);
+import Userinfo from './join/Userinfo';
+import Babyinfo from './join/Babyinfo';
+import color from '../assets/color';
+import Test from './test/Test';
+const myStore = createStore(rootReducer, composeWithDevTools());
 
 const Stack = createStackNavigator();
 
@@ -58,7 +52,7 @@ function App() {
 export default App;
 
 const MyNavigator = () => {
-  const navigationState = useSelector(state => state.navigationState);
+  const navigationState = useSelector(state => state.navigation);
   useEffect(() => {
     // console.log(navigationState);
     return () => {};
@@ -167,6 +161,9 @@ const SwitchNavigation = props => {
                     shadowOpacity: 0,
                     elevation: 0,
                   },
+                  cardStyle: {
+                    backgroundColor: 'white',
+                  },
                 }
               : {
                   headerTitle: () => (
@@ -191,6 +188,9 @@ const SwitchNavigation = props => {
 
                   headerStyle: {
                     shadowColor: '#fff',
+                  },
+                  cardStyle: {
+                    backgroundColor: 'white',
                   },
                 }
           }
@@ -251,6 +251,9 @@ const SwitchNavigation = props => {
                     shadowOpacity: 0,
                     elevation: 0,
                   },
+                  cardStyle: {
+                    backgroundColor: 'white',
+                  },
                 }
               : {
                   headerTitle: () => (
@@ -276,9 +279,148 @@ const SwitchNavigation = props => {
                   headerStyle: {
                     shadowColor: '#fff',
                   },
+                  cardStyle: {
+                    backgroundColor: 'white',
+                  },
                 }
           }
           component={CheckEmail}
+        />
+        <Stack.Screen
+          name="Userinfo"
+          component={Userinfo}
+          options={
+            Platform.OS === 'android'
+              ? {
+                  title: '회원가입',
+                  headerTitleContainerStyle: {
+                    // backgroundColor: 'yellow',
+                    position: 'absolute',
+                    left: 0,
+                    width: '100%',
+                    zIndex: 0,
+                  },
+                  // headerStyle: {
+                  //   paddingHorizontal: 8,
+                  // },
+                  headerTitle: () => (
+                    <View
+                      style={{
+                        // backgroundColor: 'red',
+                        justifyContent: 'center',
+
+                        alignItems: 'center',
+                        // backgroundColor: 'yellow',
+                      }}>
+                      <Text
+                        style={{
+                          fontSize: 14,
+                          fontFamily: 'GmarketSansMedium',
+                        }}>
+                        회원가입
+                      </Text>
+                    </View>
+                  ),
+                  // headerBackTitleVisible: false,
+                  headerBackImage: () => (
+                    <Image
+                      style={
+                        Platform.OS === 'android'
+                          ? {marginLeft: 5}
+                          : {marginLeft: 10}
+                      }
+                      source={backbtn}
+                    />
+                  ),
+
+                  headerStyle: {
+                    shadowColor: '#fff',
+                    shadowOffset: {
+                      height: 0,
+                    },
+                    shadowRadius: 0,
+                    shadowOpacity: 0,
+                    elevation: 0,
+                  },
+                  cardStyle: {
+                    backgroundColor: 'white',
+                  },
+                }
+              : {
+                  headerTitle: () => (
+                    <View
+                      style={{
+                        justifyContent: 'center',
+                        alignItems: 'center',
+                      }}>
+                      <Text
+                        style={{
+                          fontSize: 14,
+                          fontFamily: 'GmarketSansMedium',
+                        }}>
+                        회원가입
+                      </Text>
+                    </View>
+                  ),
+                  headerBackTitleVisible: false,
+                  headerBackImage: () => (
+                    <Image style={{marginLeft: 10}} source={backbtn} />
+                  ),
+
+                  headerStyle: {
+                    shadowColor: '#fff',
+                  },
+                  cardStyle: {
+                    backgroundColor: 'white',
+                  },
+                }
+          }
+        />
+        <Stack.Screen
+          name="Babyinfo"
+          options={
+            Platform.OS === 'android'
+              ? {
+                  title: '',
+                  headerBackImage: () => (
+                    <Image style={{marginLeft: 5}} source={backwhite} />
+                  ),
+
+                  headerStyle: {
+                    shadowOffset: {
+                      height: 0,
+                    },
+                    shadowRadius: 0,
+                    shadowOpacity: 0,
+                    elevation: 0,
+                    shadowColor: 'transparent',
+                    backgroundColor: color.mainColor,
+                  },
+                }
+              : {
+                  title: '',
+                  headerBackTitleVisible: false,
+                  headerBackImage: () => (
+                    <Image style={{marginLeft: 10}} source={backwhite} />
+                  ),
+
+                  headerStyle: {
+                    shadowColor: 'transparent',
+                    // backgroundColor: 'rgba(0,0,0,0)',
+                    backgroundColor: color.mainColor,
+                  },
+                }
+          }
+          component={Babyinfo}
+        />
+        <Stack.Screen
+          name="Test"
+          component={Test}
+          options={{
+            headerStyle: {
+              backgroundColor: 'transparent',
+            },
+          }}
         />
       </Stack.Navigator>
     );

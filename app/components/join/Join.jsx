@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import {
   StyleSheet,
   Text,
@@ -10,8 +10,12 @@ import {
 import img from '../../assets/img';
 import colors from '../../assets/color';
 
-const Join = () => {
+const Join = props => {
   const [isChecked, setIsChecked] = useState(false);
+  const navigation = props.navigation;
+  useEffect(() => {
+    return () => {};
+  }, []);
   return (
     <View style={{backgroundColor: 'white', height: '100%'}}>
       <SafeAreaView style={css.container}>
@@ -126,6 +130,9 @@ const Join = () => {
               borderRadius: 10,
               justifyContent: 'center',
               alignItems: 'center',
+            }}
+            onPress={() => {
+              navigation.navigate('Userinfo');
             }}>
             <Text
               style={{
