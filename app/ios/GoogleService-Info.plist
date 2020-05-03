@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>317805006494-lecvob90map0mjbbtlqute7cm4d320gd.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.317805006494-lecvob90map0mjbbtlqute7cm4d320gd</string>
+	<key>API_KEY</key>
+	<string>AIzaSyBt7UCiupYKIMLAjmzrsNlbB9M4mO4LFKY</string>
+	<key>GCM_SENDER_ID</key>
+	<string>317805006494</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.suksuk</string>
+	<key>PROJECT_ID</key>
+	<string>suksuk-7bdd7</string>
+	<key>STORAGE_BUCKET</key>
+	<string>suksuk-7bdd7.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:317805006494:ios:e2d8421a18cd2d86a0758f</string>
+	<key>DATABASE_URL</key>
+	<string>https://suksuk-7bdd7.firebaseio.com</string>
+</dict>
+</plist>
