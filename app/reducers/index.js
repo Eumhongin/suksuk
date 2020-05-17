@@ -2,11 +2,16 @@ import {
   combineReducers
 } from 'redux'
 import navigationState from './navigation'
+import client from './client'
+import layouts from './layout'
+
 
 
 
 const rootReducer = combineReducers({
-  navigationState: navigationState,
+  navigation: navigationState,
+  client: client,
+  layouts: layouts
 
 })
 
